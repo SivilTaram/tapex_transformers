@@ -40,6 +40,7 @@ from . import (
     ctrl,
     deberta,
     deberta_v2,
+    deformable_detr,
     deit,
     detr,
     dialogpt,

@@ -30,6 +30,7 @@ logger = logging.get_logger(__name__)
 CONFIG_MAPPING_NAMES = OrderedDict(
     [
         # Add configs here
+        ("deformable_detr", "DeformableDetrConfig"),
         ("swin", "SwinConfig"),
         ("vilt", "ViltConfig"),
         ("vit_mae", "ViTMAEConfig"),
@@ -121,6 +122,7 @@ CONFIG_MAPPING_NAMES = OrderedDict(
 CONFIG_ARCHIVE_MAP_MAPPING_NAMES = OrderedDict(
     [
         # Add archive maps here
+        ("deformable_detr", "DEFORMABLE_DETR_PRETRAINED_CONFIG_ARCHIVE_MAP"),
         ("swin", "SWIN_PRETRAINED_CONFIG_ARCHIVE_MAP"),
         ("vilt", "VILT_PRETRAINED_CONFIG_ARCHIVE_MAP"),
         ("vit_mae", "VIT_MAE_PRETRAINED_CONFIG_ARCHIVE_MAP"),
@@ -200,6 +202,7 @@ CONFIG_ARCHIVE_MAP_MAPPING_NAMES = OrderedDict(
 MODEL_NAMES_MAPPING = OrderedDict(
     [
         # Add full (and cased) model names here
+        ("deformable_detr", "DeformableDetr"),
         ("swin", "Swin"),
         ("vilt", "ViLT"),
         ("vit_mae", "ViTMAE"),

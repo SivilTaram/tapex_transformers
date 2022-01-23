@@ -205,6 +205,10 @@ _import_structure = {
     "models.ctrl": ["CTRL_PRETRAINED_CONFIG_ARCHIVE_MAP", "CTRLConfig", "CTRLTokenizer"],
     "models.deberta": ["DEBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP", "DebertaConfig", "DebertaTokenizer"],
     "models.deberta_v2": ["DEBERTA_V2_PRETRAINED_CONFIG_ARCHIVE_MAP", "DebertaV2Config"],
+    "models.deformable_detr": [
+        "DEFORMABLE_DETR_PRETRAINED_CONFIG_ARCHIVE_MAP",
+        "DeformableDetrConfig",
+    ],
     "models.deit": ["DEIT_PRETRAINED_CONFIG_ARCHIVE_MAP", "DeiTConfig"],
     "models.detr": ["DETR_PRETRAINED_CONFIG_ARCHIVE_MAP", "DetrConfig"],
     "models.dialogpt": [],
@@ -528,6 +532,15 @@ else:
 
 # Timm-backed objects
 if is_timm_available() and is_vision_available():
+    _import_structure["models.deformable_detr"].extend(
+        [
+            "DEFORMABLE_DETR_PRETRAINED_MODEL_ARCHIVE_LIST",
+            "DeformableDetrForObjectDetection",
+            "DeformableDetrForSegmentation",
+            "DeformableDetrModel",
+            "DeformableDetrPreTrainedModel",
+        ]
+    )
     _import_structure["models.detr"].extend(
         [
             "DETR_PRETRAINED_MODEL_ARCHIVE_LIST",
@@ -633,6 +646,7 @@ if is_torch_available():
     _import_structure["modeling_utils"] = ["Conv1D", "PreTrainedModel", "apply_chunking_to_forward", "prune_layer"]
 
     # PyTorch models structure
+
     _import_structure["models.albert"].extend(
         [
             "ALBERT_PRETRAINED_MODEL_ARCHIVE_LIST",
@@ -2349,6 +2363,7 @@ if TYPE_CHECKING:
     from .models.ctrl import CTRL_PRETRAINED_CONFIG_ARCHIVE_MAP, CTRLConfig, CTRLTokenizer
     from .models.deberta import DEBERTA_PRETRAINED_CONFIG_ARCHIVE_MAP, DebertaConfig, DebertaTokenizer
     from .models.deberta_v2 import DEBERTA_V2_PRETRAINED_CONFIG_ARCHIVE_MAP, DebertaV2Config
+    from .models.deformable_detr import DEFORMABLE_DETR_PRETRAINED_CONFIG_ARCHIVE_MAP, DeformableDetrConfig
     from .models.deit import DEIT_PRETRAINED_CONFIG_ARCHIVE_MAP, DeiTConfig
     from .models.detr import DETR_PRETRAINED_CONFIG_ARCHIVE_MAP, DetrConfig
     from .models.distilbert import DISTILBERT_PRETRAINED_CONFIG_ARCHIVE_MAP, DistilBertConfig, DistilBertTokenizer
@@ -2617,6 +2632,13 @@ if TYPE_CHECKING:
 
     # Modeling
     if is_timm_available() and is_vision_available():
+        from .models.deformable_detr import (
+            DEFORMABLE_DETR_PRETRAINED_MODEL_ARCHIVE_LIST,
+            DeformableDetrForObjectDetection,
+            DeformableDetrForSegmentation,
+            DeformableDetrModel,
+            DeformableDetrPreTrainedModel,
+        )
         from .models.detr import (
             DETR_PRETRAINED_MODEL_ARCHIVE_LIST,
             DetrForObjectDetection,
@@ -2659,6 +2681,7 @@ if TYPE_CHECKING:
         from .utils.dummy_pytorch_quantization_and_torch_objects import *
 
     if is_torch_available():
+
         # Benchmarks
         from .benchmark.benchmark import PyTorchBenchmark
         from .benchmark.benchmark_args import PyTorchBenchmarkArguments

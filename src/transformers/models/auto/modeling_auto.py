@@ -28,6 +28,7 @@ logger = logging.get_logger(__name__)
 MODEL_MAPPING_NAMES = OrderedDict(
     [
         # Base model mapping
+        ("deformable_detr", "DeformableDetrModel"),
         ("swin", "SwinModel"),
         ("vilt", "ViltModel"),
         ("vit_mae", "ViTMAEModel"),
@@ -271,6 +272,7 @@ MODEL_FOR_IMAGE_CLASSIFICATION_MAPPING_NAMES = OrderedDict(
 MODEL_FOR_IMAGE_SEGMENTATION_MAPPING_NAMES = OrderedDict(
     [
         # Model for Image Segmentation mapping
+        ("deformable_detr", "DeformableDetrForSegmentation"),
         ("detr", "DetrForSegmentation"),
     ]
 )
@@ -322,6 +324,7 @@ MODEL_FOR_MASKED_LM_MAPPING_NAMES = OrderedDict(
 MODEL_FOR_OBJECT_DETECTION_MAPPING_NAMES = OrderedDict(
     [
         # Model for Object Detection mapping
+        ("deformable_detr", "DeformableDetrForObjectDetection"),
         ("detr", "DetrForObjectDetection"),
     ]
 )
