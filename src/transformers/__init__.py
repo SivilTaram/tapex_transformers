@@ -1360,6 +1360,7 @@ if is_torch_available():
         [
             "SWIN_PRETRAINED_MODEL_ARCHIVE_LIST",
             "SwinForImageClassification",
+            "SwinForMaskedImageModeling",
             "SwinModel",
             "SwinPreTrainedModel",
         ]
@@ -3370,6 +3371,7 @@ if TYPE_CHECKING:
         from .models.swin import (
             SWIN_PRETRAINED_MODEL_ARCHIVE_LIST,
             SwinForImageClassification,
+            SwinForMaskedImageModeling,
             SwinModel,
             SwinPreTrainedModel,
         )
